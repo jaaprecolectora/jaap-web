@@ -1,0 +1,29 @@
+---
+const wa = 'https://wa.me/523314281747?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.';
+---
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 bg-white transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-[68px] flex items-center justify-between gap-6">
+
+    <a href="#inicio" class="flex-shrink-0">
+      <img src="/JAAP.svg" alt="JAAP Recolectora" class="h-8 md:h-9 w-auto" />
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#nosotros"  class="text-sm font-medium text-gray-700 hover:text-[#127139] transition-colors">Nosotros</a>
+      <a href="#servicios" class="text-sm font-medium text-gray-700 hover:text-[#127139] transition-colors">Servicios</a>
+      <a href="#clientes"  class="text-sm font-medium text-gray-700 hover:text-[#127139] transition-colors">Clientes</a>
+      <a href="#contacto"  class="text-sm font-medium text-gray-700 hover:text-[#127139] transition-colors">Contacto</a>
+    </nav>
+
+    <a href={wa} target="_blank" rel="noopener noreferrer"
+      class="px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90 hover:scale-[1.03]"
+      style="background-color:#127139">
+      Contáctanos
+    </a>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav?.classList.toggle('shadow-md', window.scrollY > 8), { passive: true });
+</script>

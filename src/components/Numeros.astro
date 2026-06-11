@@ -1,0 +1,25 @@
+---
+const metricas = [
+  { valor: '30+',   label: 'Años en el sector',         sub: 'Desde 1994 en la ZMG' },
+  { valor: '15+',   label: 'Años de experiencia',        sub: 'En manejo especializado' },
+  { valor: 'ZMG',   label: 'Cobertura completa',         sub: 'Toda la zona metropolitana' },
+  { valor: '100%',  label: 'Legal y certificado',        sub: 'SEMADET · SEMARNAT · SAT' },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden shadow-sm">
+      {metricas.map((m, i) => (
+        <div
+          class="reveal bg-white px-8 py-10 flex flex-col items-center text-center"
+          style={`transition-delay:${i * 0.08}s`}
+        >
+          <span class="text-5xl md:text-6xl font-black mb-2" style="color:#127139">{m.valor}</span>
+          <span class="font-bold text-gray-900 text-base mb-1">{m.label}</span>
+          <span class="text-xs text-gray-400">{m.sub}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

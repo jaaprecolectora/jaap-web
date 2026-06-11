@@ -1,0 +1,82 @@
+---
+const valores = [
+  {
+    titulo: 'Responsabilidad',
+    desc: 'Cada residuo que manejamos es nuestra responsabilidad. Cumplimos con la normativa y respondemos ante nuestros clientes y el medio ambiente.',
+    icono: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>`,
+  },
+  {
+    titulo: 'Honestidad',
+    desc: 'Le decimos a cada cliente exactamente lo que necesita — no más, no menos. Sin costos ocultos ni promesas que no podemos cumplir.',
+    icono: `<path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>`,
+  },
+  {
+    titulo: 'Compromiso',
+    desc: 'Nos comprometemos con el plan de manejo de cada cliente y lo cumplimos. La puntualidad y la constancia son parte de nuestro servicio.',
+    icono: `<path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>`,
+  },
+  {
+    titulo: 'Legalidad',
+    desc: 'Operamos siempre dentro del marco legal. Permisos vigentes ante SEMADET y SEMARNAT, y documentación en regla para proteger a nuestros clientes.',
+    icono: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>`,
+  },
+  {
+    titulo: 'Cuidado Ambiental',
+    desc: 'Cada decisión que tomamos considera el impacto en el medio ambiente. El manejo responsable de residuos no es solo un servicio — es nuestra razón de ser.',
+    icono: `<path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`,
+  },
+  {
+    titulo: 'Mejora Continua',
+    desc: 'Treinta años en el sector nos han enseñado que siempre hay una mejor forma de hacer las cosas. Innovamos para dar un servicio más eficiente y seguro.',
+    icono: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>`,
+  },
+];
+---
+
+<section id="valores" class="py-24 md:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- Encabezado -->
+    <div class="grid md:grid-cols-2 gap-8 items-end mb-16">
+      <div>
+        <p class="reveal text-xs font-bold tracking-widest uppercase mb-3" style="color:#127139">Lo que nos define</p>
+        <h2 class="reveal text-3xl md:text-4xl lg:text-5xl font-black leading-tight" style="transition-delay:0.08s">
+          <span style="color:#ffca05">Nuestros</span><br/>
+          <span class="text-gray-900">valores.</span>
+        </h2>
+      </div>
+      <p class="reveal text-base text-gray-500 leading-relaxed md:text-right md:max-w-sm md:ml-auto" style="transition-delay:0.14s">
+        Los principios que guían cada recolección, cada trámite y cada relación con nuestros clientes desde 1994.
+      </p>
+    </div>
+
+    <!-- Grid de valores -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {valores.map((v, i) => (
+        <div
+          class="reveal group flex gap-5 p-7 rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(18,113,57,0.10)] hover:border-[#cde5d4]"
+          style={`transition-delay:${i * 0.06}s`}
+        >
+          <!-- Ícono -->
+          <div
+            class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors duration-200 group-hover:bg-[#127139]"
+            style="background-color:#e6f4ec"
+          >
+            <svg
+              class="w-5 h-5 transition-colors duration-200 group-hover:text-white"
+              style="color:#127139"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              set:html={v.icono}
+            />
+          </div>
+          <!-- Texto -->
+          <div>
+            <h3 class="font-bold text-gray-900 text-base mb-2">{v.titulo}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+const clientes = [
+  { nombre: 'Walmart',                          sector: 'Retail' },
+  { nombre: 'Bachoco',                           sector: 'Alimentos' },
+  { nombre: 'Omnilife',                          sector: 'Suplementos' },
+  { nombre: 'Aduana de México',                  sector: 'Gobierno Federal' },
+  { nombre: 'Guardia Nacional',                  sector: 'Seguridad Nacional' },
+  { nombre: 'Grupo Aeroportuario del Pacífico',  sector: 'Aeronáutico' },
+  { nombre: 'Plaza Patria',                      sector: 'Centro Comercial' },
+  { nombre: 'Smurfit Westrock',                  sector: 'Manufactura' },
+];
+
+function initials(name: string) {
+  const w = name.trim().split(/\s+/);
+  return w.length === 1 ? w[0].slice(0,2).toUpperCase() : (w[0][0]+w[1][0]).toUpperCase();
+}
+---
+
+<section id="clientes" class="py-24 md:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="reveal text-xs font-semibold tracking-widest uppercase mb-3" style="color:#127139">Nuestros clientes</p>
+      <h2 class="reveal text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight" style="transition-delay:.08s">
+        Empresas que confían en nosotros.
+      </h2>
+      <p class="reveal text-base text-gray-400 mt-4" style="transition-delay:.14s">
+        Trabajamos con empresas que exigen excelencia, trazabilidad y cumplimiento normativo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {clientes.map((c, i) => (
+        <div class="reveal group flex items-center gap-3 p-5 rounded-2xl border border-gray-100 bg-white
+          hover:shadow-md hover:border-[#b8d9c2] hover:-translate-y-0.5 transition-all duration-200"
+          style={`transition-delay:${i * 0.05}s`}>
+          <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold text-white"
+            style="background-color:#127139">
+            {initials(c.nombre)}
+          </div>
+          <div class="min-w-0">
+            <p class="font-semibold text-gray-900 text-sm leading-snug truncate">{c.nombre}</p>
+            <p class="text-xs text-gray-400 mt-0.5">{c.sector}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="reveal text-center text-sm text-gray-400 mt-10">
+      Y muchas más empresas en Guadalajara durante 30 años.
+    </p>
+
+  </div>
+</section>

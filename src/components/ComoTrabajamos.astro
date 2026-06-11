@@ -1,0 +1,54 @@
+---
+const pasos = [
+  {
+    num: '01',
+    titulo: 'Nos contactas',
+    desc: 'Escríbenos por WhatsApp o llena el formulario. Te respondemos el mismo día para agendar una visita sin costo.',
+  },
+  {
+    num: '02',
+    titulo: 'Evaluamos tus residuos',
+    desc: 'Visitamos tus instalaciones, identificamos el tipo y volumen de residuos y diseñamos un plan de manejo específico para tu empresa.',
+  },
+  {
+    num: '03',
+    titulo: 'Recolectamos y certificamos',
+    desc: 'Ejecutamos el plan puntualmente. Al finalizar recibes la documentación de trazabilidad y el certificado con validez ante el SAT.',
+  },
+];
+---
+
+<section id="como-trabajamos" class="py-24 md:py-32" style="background-color:#F8F8F8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="max-w-xl mb-16">
+      <p class="reveal text-xs font-bold tracking-widest uppercase mb-3" style="color:#127139">Proceso</p>
+      <h2 class="reveal text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight" style="transition-delay:.08s">
+        Así <span style="color:#ffca05">trabajamos.</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-0 md:gap-0 relative">
+      <!-- Línea conectora (desktop) -->
+      <div class="hidden md:block absolute top-[52px] left-[calc(16.67%+16px)] right-[calc(16.67%+16px)] h-px" style="background: linear-gradient(90deg, #ffca05, #127139, #ffca05)"></div>
+
+      {pasos.map((p, i) => (
+        <div
+          class="reveal flex flex-col items-start md:items-center text-left md:text-center px-0 md:px-8 py-8 md:py-0"
+          style={`transition-delay:${i * 0.1}s`}
+        >
+          <!-- Número en círculo -->
+          <div class="relative mb-6">
+            <div class="w-[52px] h-[52px] rounded-full flex items-center justify-center font-black text-xl relative z-10"
+              style="background-color:#ffca05; color:#127139">
+              {p.num}
+            </div>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-3">{p.titulo}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed max-w-xs">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+const nombres = ['Walmart','Bachoco','Omnilife','GAP','Aduana de México','Guardia Nacional','Grupo Aeroportuario del Pacífico','Smurfit Westrock','Plaza Patria'];
+const doble = [...nombres, ...nombres];
+---
+<div class="bg-white border-y border-gray-100 py-4 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-3">
+    <p class="text-xs text-gray-400 font-medium text-center tracking-wide">Empresas que confían en nosotros</p>
+  </div>
+  <div class="overflow-hidden">
+    <div class="marquee-inner">
+      {doble.map((n) => (
+        <div class="flex items-center gap-2 px-8 flex-shrink-0">
+          <span class="font-bold text-sm text-gray-800 whitespace-nowrap">{n}</span>
+          <span class="text-gray-300 text-lg mx-2">·</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

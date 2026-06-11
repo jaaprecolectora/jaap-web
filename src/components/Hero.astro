@@ -1,0 +1,52 @@
+---
+const waCotiz = 'https://wa.me/523314281747?text=Hola%2C%20quisiera%20una%20cotizaci%C3%B3n%20sin%20costo.';
+---
+<section id="inicio" class="hero-texture pt-[68px] min-h-screen flex items-center">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-24 w-full">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Texto -->
+      <div>
+        <span class="reveal inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border mb-8"
+          style="color:rgba(255,202,5,0.8); border-color:rgba(255,202,5,0.25)">
+          Empresa familiar · Guadalajara · Desde 1994
+        </span>
+
+        <h1 class="reveal text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6" style="transition-delay:.07s">
+          <span class="block text-white">Residuos</span>
+          <span class="block" style="color:#ffca05">bajo control.</span>
+        </h1>
+
+        <p class="reveal text-base md:text-lg leading-relaxed mb-10 max-w-md" style="color:rgba(255,255,255,0.65); transition-delay:.14s">
+          Somos una empresa familiar 100% mexicana dedicada al manejo integral de residuos.
+          Servicio personalizado, certificado y comprometido con el medio ambiente.
+        </p>
+
+        <div class="reveal flex flex-col sm:flex-row gap-3" style="transition-delay:.2s">
+          <a href={waCotiz} target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-semibold text-sm transition-all hover:scale-[1.03] hover:shadow-lg"
+            style="background-color:#ffca05; color:#127139">
+            Solicita cotización gratis
+          </a>
+          <a href="#servicios"
+            class="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-semibold text-sm border-2 text-white transition-all hover:bg-white/10"
+            style="border-color:rgba(255,255,255,0.4)">
+            Conoce nuestros servicios
+          </a>
+        </div>
+      </div>
+
+      <!-- Foto camión -->
+      <div class="reveal hidden md:block" style="transition-delay:.18s">
+        <div class="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
+          <img
+            src="/fotos/7ad560c5-f7de-4291-9daf-bda63b536beb.JPG"
+            alt="Camión JAAP Recolectora"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
