@@ -102,13 +102,25 @@ const email = 'jaaprecolectora@gmail.com';
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const ok = document.getElementById('form-ok');
-    form.querySelectorAll('input,textarea,button').forEach(el => ((el as HTMLInputElement).disabled = true));
-    ok?.classList.remove('hidden');
-    setTimeout(() => {
-      form.reset();
-      form.querySelectorAll('input,textarea,button').forEach(el => ((el as HTMLInputElement).disabled = false));
-      ok?.classList.add('hidden');
-    }, 4000);
+    const fields = form.querySelectorAll('input,textarea,button');
+    fields.forEach(el => ((el as HTMLInputElement).disabled = true));
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form) as any).toString(),
+    })
+      .then(() => {
+        ok?.classList.remove('hidden');
+        setTimeout(() => {
+          form.reset();
+          fields.forEach(el => ((el as HTMLInputElement).disabled = false));
+          ok?.classList.add('hidden');
+        }, 4000);
+      })
+      .catch(() => {
+        fields.forEach(el => ((el as HTMLInputElement).disabled = false));
+      });
   }
   (window as any).handleSubmit = handleSubmit;
 </script>
