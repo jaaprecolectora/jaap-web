@@ -105,10 +105,14 @@ const email = 'jaaprecolectora@gmail.com';
     const fields = form.querySelectorAll('input,textarea,button');
     fields.forEach(el => ((el as HTMLInputElement).disabled = true));
 
+    const formData = new FormData(form);
+    const body = new URLSearchParams();
+    formData.forEach((val, key) => body.append(key, val as string));
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form) as any).toString(),
+      body: body.toString(),
     })
       .then(() => {
         ok?.classList.remove('hidden');
