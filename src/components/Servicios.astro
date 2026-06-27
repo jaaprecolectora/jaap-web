@@ -50,18 +50,81 @@ const servicios = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {servicios.map((s, i) => (
-        <div class="reveal group bg-white rounded-2xl p-7 border border-gray-100 shadow-sm
-          transition-all duration-300 hover:-translate-y-1 hover:border-[#127139] hover:shadow-[0_8px_30px_rgba(18,113,57,0.12)]"
-          style={`transition-delay:${i * 0.06}s`}>
-          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 transition-colors group-hover:bg-[#127139]"
-            style="background-color:#e6f4ec">
-            <svg class="w-6 h-6 transition-colors group-hover:text-white" style="color:#127139"
-              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" set:html={s.icono} />
+        s.titulo === 'Destrucciones Fiscales' ? (
+          <div class="reveal group bg-white rounded-2xl p-7 border border-gray-100 shadow-sm
+            transition-all duration-300 hover:-translate-y-1 hover:border-[#127139] hover:shadow-[0_8px_30px_rgba(18,113,57,0.12)] cursor-pointer"
+            style={`transition-delay:${i * 0.06}s`}
+            onclick="document.getElementById('modal-destruccion').classList.remove('hidden')">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 transition-colors group-hover:bg-[#127139]"
+              style="background-color:#e6f4ec">
+              <svg class="w-6 h-6 transition-colors group-hover:text-white" style="color:#127139"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" set:html={s.icono} />
+            </div>
+            <h3 class="font-semibold text-gray-900 text-base mb-2 leading-snug">{s.titulo}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+            <p class="text-xs font-semibold mt-3" style="color:#127139">Ver más →</p>
           </div>
-          <h3 class="font-semibold text-gray-900 text-base mb-2 leading-snug">{s.titulo}</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
-        </div>
+        ) : (
+          <div class="reveal group bg-white rounded-2xl p-7 border border-gray-100 shadow-sm
+            transition-all duration-300 hover:-translate-y-1 hover:border-[#127139] hover:shadow-[0_8px_30px_rgba(18,113,57,0.12)]"
+            style={`transition-delay:${i * 0.06}s`}>
+            <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 transition-colors group-hover:bg-[#127139]"
+              style="background-color:#e6f4ec">
+              <svg class="w-6 h-6 transition-colors group-hover:text-white" style="color:#127139"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" set:html={s.icono} />
+            </div>
+            <h3 class="font-semibold text-gray-900 text-base mb-2 leading-snug">{s.titulo}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+          </div>
+        )
       ))}
+    </div>
+
+    <!-- Modal Destrucción Fiscal -->
+    <div id="modal-destruccion" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4"
+      onclick="if(event.target===this)this.classList.add('hidden')"
+      style="background-color:rgba(0,0,0,0.6)">
+      <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-6 border-b border-gray-100">
+          <h3 class="text-xl font-bold text-gray-900">Destrucción Fiscal de Documentos</h3>
+          <button onclick="document.getElementById('modal-destruccion').classList.add('hidden')"
+            class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 transition-colors text-lg font-bold">✕</button>
+        </div>
+        <!-- Fotos -->
+        <div class="grid grid-cols-3 gap-2 p-4">
+          <img src="/fotos/IMG_1172.jpg" alt="Destrucción fiscal" class="rounded-xl w-full h-32 object-cover" />
+          <img src="/fotos/IMG_1498_nueva.jpg" alt="Destrucción fiscal" class="rounded-xl w-full h-32 object-cover" />
+          <img src="/fotos/IMG_2012.jpg" alt="Destrucción fiscal" class="rounded-xl w-full h-32 object-cover" />
+        </div>
+        <!-- Contenido -->
+        <div class="px-6 pb-6 space-y-4">
+          <p class="text-sm text-gray-600 leading-relaxed">Eliminamos tu documentación sensible de forma segura, certificada y con respaldo legal. Ideal para empresas que necesitan cumplir con sus obligaciones fiscales sin riesgos.</p>
+          <div>
+            <p class="font-semibold text-gray-900 mb-2 text-sm">¿Qué destruimos?</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Estados de cuenta, facturas, nóminas, contratos, expedientes y cualquier documento con información confidencial o con valor fiscal.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 mb-2 text-sm">¿Cómo funciona?</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Recolectamos, destruimos y te entregamos un acta oficial con folio para tu tranquilidad ante el SAT y cualquier auditoría.</p>
+          </div>
+          <div class="rounded-xl p-4" style="background-color:#e6f4ec">
+            <p class="font-semibold mb-3 text-sm" style="color:#127139">¿Por qué con JAAP?</p>
+            <ul class="space-y-2 text-sm" style="color:#127139">
+              <li>✓ Proceso 100% trazable</li>
+              <li>✓ Acta de destrucción certificada</li>
+              <li>✓ Cumplimiento ante SEMADET</li>
+              <li>✓ Más de 30 años de experiencia</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/523314281747?text=Hola%2C%20quisiera%20información%20sobre%20destrucciones%20fiscales."
+            target="_blank" rel="noopener noreferrer"
+            class="block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all hover:opacity-90"
+            style="background-color:#127139; color:white">
+            Solicitar información por WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="reveal text-center mt-12">
